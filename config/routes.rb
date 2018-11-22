@@ -58,12 +58,6 @@ Rails.application.routes.draw do
   end
 
   #
-  # Saml Login Endpoints
-  #
-  match '/auth/:provider/callback', :to => 'admin/saml_auth#create', :via => [:post]
-  match '/auth/failure', :to => 'admin/saml_auth#failure', :via => [:get]
-
-  #
   # Setup Wizard
   #
   match 'setup/:action', :controller => 'setup', :as => 'setup', :via => [:get, :post]

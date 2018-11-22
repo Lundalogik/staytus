@@ -28,7 +28,6 @@ gem 'premailer'
 gem 'rack-custom-proxies'
 gem 'log_logins'
 
-gem 'omniauth-saml'
 group :development, :test do
   gem 'annotate', '~> 2.6.5'
 end

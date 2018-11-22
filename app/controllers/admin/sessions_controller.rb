@@ -7,8 +7,6 @@ class Admin::SessionsController < Admin::BaseController
     if Staytus::Config.demo?
       params[:email] = 'admin@example.com'
       params[:password] = 'password'
-    elsif Staytus::Config.omniauth_saml?
-      redirect_to '/auth/saml'
     end
   end
 
@@ -32,11 +30,7 @@ class Admin::SessionsController < Admin::BaseController
 
   def destroy
     auth_session.invalidate!
-    if Staytus::Config.omniauth_saml?
-      redirect_to root_path
-    else
-      redirect_to admin_login_path
-    end
+    redirect_to admin_login_path
   end
 
 end
