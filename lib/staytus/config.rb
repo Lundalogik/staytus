@@ -20,6 +20,10 @@ module Staytus
         ENV['STAYTUS_DEMO'] == '1'
       end
 
+      def omniauth_azure_oauth2?
+        ENV['OMNIAUTH_AZURE_OAUTH2'] == '1'
+      end
+
     end
   end
 end

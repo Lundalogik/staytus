@@ -58,6 +58,13 @@ Rails.application.routes.draw do
   end
 
   #
+  # SSO Endpoints
+  #
+  if Staytus::Config.omniauth_azure_oauth2?
+    match '/auth/:provider/callback', :to => 'admin/azure_oauth2_auth#create', :via => [:get, :post]
+    match '/auth/failure', :to => 'admin/azure_oauth2_auth#failure', :via => [:get]
+  end
+  #
   # Setup Wizard
   #
   match 'setup/:action', :controller => 'setup', :as => 'setup', :via => [:get, :post]
