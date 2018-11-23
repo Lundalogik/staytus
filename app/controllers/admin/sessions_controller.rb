@@ -15,6 +15,9 @@ class Admin::SessionsController < Admin::BaseController
   def create
     if Staytus::Config.demo?
       user = User.first
+    elsif Staytus::Config.omniauth_azure_oauth2?
+      redirect_to root_path
+      return
     else
       user = User.authenticate(params[:email], params[:password], request.ip)
     end
