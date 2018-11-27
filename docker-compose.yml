@@ -1,25 +1,28 @@
-database:
-  image: "sameersbn/mysql:latest"
-  environment:
-    DB_NAME: staytus
-    DB_USER: staytus
-    DB_PASS: staytus
-  volumes:
-    - "~/Temp/staytus-db:/var/lib/mysql"
-staytus:
-  image: staytus
-  links:
-    - database
-  ports:
-    - "5000:5000"
-  environment:
-#    CREATE_DB: 1
-    DB_HOST: database
-    DB_PASSWORD: staytus
-    DEBUG: "false"
-    RAILS_ENV: production
-    SETTING_STAYTUS_THEME: lime
-    FORCE_SSL: "0"
-#    SETTING_SMTP_HOSTNAME: smtp.deliverhq.com
-#    SETTING_STAYTUS_SMTP_USERNAME: your-username
-#    SETTING_STAYTUS_SMTP_PASSWORD: your-password
+version: "3"
+services:
+  database:
+    image: "sameersbn/mysql:latest"
+    environment:
+      DB_NAME: staytus
+      DB_USER: staytus
+      DB_PASS: staytus
+    volumes:
+      - "~/Temp/staytus-db:/var/lib/mysql"
+  staytus:
+    image: staytus
+    links:
+      - database
+    ports:
+      - "5000:5000"
+    environment:
+      CREATE_DB: 0
+      DB_HOST: database
+      DB_PASSWORD: staytus
+      DEBUG: "false"
+      RAILS_ENV: production
+      SETTING_STAYTUS_THEME: lime
+      FORCE_SSL: "0"
+#      WEBHOOK_URL:
+#      SETTING_SMTP_HOSTNAME: smtp.deliverhq.com
+#      SETTING_STAYTUS_SMTP_USERNAME: your-username
+#      SETTING_STAYTUS_SMTP_PASSWORD: your-password

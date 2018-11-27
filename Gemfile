@@ -28,6 +28,7 @@ gem 'premailer'
 gem 'rack-custom-proxies'
 gem 'log_logins'
 gem "omniauth-azure-oauth2", "~> 0.0.10"
+gem "httparty", "~> 0.16.3"
 
 group :development, :test do
   gem 'annotate', '~> 2.6.5'

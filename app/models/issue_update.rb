@@ -57,9 +57,15 @@ class IssueUpdate < ActiveRecord::Base
     end
   end
 
+  def send_webhooks
+    payload = { :type => 'new_issue_update', :issue => self.issue, :update => self }
+    Staytus::Webhooks.post(payload)  
+  end
+
   def send_notifications_on_create
     if self.notify?
       delay.send_notifications
+      delay.send_webhooks
     end
   end
 
