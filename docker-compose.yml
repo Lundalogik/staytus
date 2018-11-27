@@ -5,17 +5,21 @@ database:
     DB_USER: staytus
     DB_PASS: staytus
   volumes:
-    - "/opt/docker/staytus-database:/var/lib/mysql"
+    - "~/Temp/staytus-db:/var/lib/mysql"
 staytus:
-  image: "adamcooke/staytus:latest"
+  image: staytus
   links:
     - database
   ports:
-    - "80:5000"
+    - "5000:5000"
   environment:
+#    CREATE_DB: 1
     DB_HOST: database
     DB_PASSWORD: staytus
-    DEBUG: "true"
+    DEBUG: "false"
+    RAILS_ENV: production
+    SETTING_STAYTUS_THEME: lime
+    FORCE_SSL: "0"
 #    SETTING_SMTP_HOSTNAME: smtp.deliverhq.com
 #    SETTING_STAYTUS_SMTP_USERNAME: your-username
 #    SETTING_STAYTUS_SMTP_PASSWORD: your-password
