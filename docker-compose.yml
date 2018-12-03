@@ -18,11 +18,14 @@ services:
       CREATE_DB: 0
       DB_HOST: database
       DB_PASSWORD: staytus
-      DEBUG: "false"
+      DEBUG: "true"
+      LOGLEVEL: WARN
       RAILS_ENV: production
       SETTING_STAYTUS_THEME: lime
       FORCE_SSL: "0"
-#      WEBHOOK_URL:
-#      SETTING_SMTP_HOSTNAME: smtp.deliverhq.com
-#      SETTING_STAYTUS_SMTP_USERNAME: your-username
-#      SETTING_STAYTUS_SMTP_PASSWORD: your-password
+      WEBHOOK_URL: 
+      SETTING_STAYTUS_SMTP_HOSTNAME: smtp.sendgrid.net
+      SETTING_STAYTUS_SMTP_USERNAME: apikey
+      SETTING_STAYTUS_SMTP_PASSWORD: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      SETTING_STAYTUS_SMTP_PORT: 587
+      SETTING_STAYTUS_SMTP_STARTTLS: "1"
