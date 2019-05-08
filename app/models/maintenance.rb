@@ -117,9 +117,16 @@ class Maintenance < ActiveRecord::Base
     end
   end
 
+  def send_webhooks
+    payload = { :type => 'new_maintenance', :maintenance => self }
+
+    Staytus::Webhooks.post(payload)
+  end
+
   def send_notifications_on_create
     if self.notify?
       self.delay.send_notifications
+      self.delay.send_webhooks
     end
   end
 
