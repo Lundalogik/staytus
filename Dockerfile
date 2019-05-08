@@ -3,6 +3,8 @@ MAINTAINER Tim Perry <pimterry@gmail.com>
 
 USER root
 
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
 RUN apt-get update && \
     DEBIAN_FRONTEND="noninteractive" apt-get install -y nodejs mysql-client && \
     gem update --system 2.6.1 && \
