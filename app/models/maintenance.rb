@@ -126,8 +126,8 @@ class Maintenance < ActiveRecord::Base
   def send_notifications_on_create
     if self.notify?
       self.delay.send_notifications
-      self.delay.send_webhooks
     end
+    self.delay.send_webhooks
   end
 
   private
