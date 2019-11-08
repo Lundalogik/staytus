@@ -7,7 +7,7 @@ class Admin::AzureOauth2AuthController < Admin::BaseController
       auth_hash = request.env['omniauth.auth']
       email = auth_hash['info']['email']
       user = User.find_by(email_address: email) rescue nil
-
+      user ||= User.create!(email_address: email, name: auth_hash['info']['name'], password: SecureRandom.hex(15),)
       if !user
         redirect_to root_path, :notice => "Sorry, failed to login with SSO (you are not an admin!)."
       else
