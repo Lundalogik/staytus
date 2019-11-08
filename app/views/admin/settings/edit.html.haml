@@ -29,8 +29,18 @@
           %dd.fieldSet__input= f.text_field :support_email, :class => 'textInput'
       .col.col--10
         %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :support_url, "Support URL"
+          %dd.fieldSet__input= f.text_field :support_url, :class => 'textInput'
+
+    .row
+      .col.col--10
+        %dl.fieldSet__field.u-margin
           %dt.fieldSet__label= f.label :website_url, "Website URL"
           %dd.fieldSet__input= f.text_field :website_url, :class => 'textInput'
+      .col.col--10
+        %dl.fieldSet__field.u-margin
+          %dt.fieldSet__label= f.label :privacy_policy_url, "Privacy Policy URL"
+          %dd.fieldSet__input= f.text_field :privacy_policy_url, :class => 'textInput'
 
     %dl.fieldSet__field.u-margin
       %dt.fieldSet__label= f.label :time_zone, "Time Zone"
@@ -56,9 +66,6 @@
         .fieldSet__checkbox.fieldSet__selectContainer
           = f.check_box :allow_subscriptions
           = f.label :allow_subscriptions, "Yes - allow visitors to receive updates whenever you add/update issues"
-    %dl.fieldSet__field.u-margin-2x
-      %dt.fieldSet__label= f.label :privacy_policy_url, "Privacy Policy URL"
-      %dd.fieldSet__input= f.text_field :privacy_policy_url, :class => 'textInput'
 
 
     %h2.fieldSet__subHeading.u-margin Outgoing E-Mail Settings
