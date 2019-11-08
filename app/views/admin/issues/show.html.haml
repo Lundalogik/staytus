@@ -22,7 +22,7 @@
       %dd
         %ul.standardList.standardList--double
           - for service in @issue.services
-            %li= service.name
+            %li= (service.group.nil? ? "" : service.group.name + " - ") + service.name
 
 .box.box--white.u-margin-top-2x
   = form_for [:admin, @issue, @update] do |f|

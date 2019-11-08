@@ -12,7 +12,7 @@
     %table.dashboardServiceStatusTable
       - for service in @services
         %tr
-          %td.name= service.name
+          %td.name= (service.group.nil? ? "" : service.group.name + " - ") + service.name
           %td= service_status_tag(service, :link_maintenance => :admin)
   .col.col--8
     %a.dashboardButton.dashboardButton--issue.u-margin{:href => new_admin_issue_path}
