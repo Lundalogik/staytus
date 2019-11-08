@@ -81,6 +81,10 @@ $ ->
   #
   $('a[href^=http]:not([rel=internal])').attr('target', '_blank');
 
+  $('#issue_update_state_resolved').change ->
+    if @value is "resolved" and @checked
+      $('#issue_update_service_status_id option[value=1]').attr('selected','selected');
+
   #
   # Deleting image attachments
   #
