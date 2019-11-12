@@ -27,7 +27,7 @@
       %dd
         %ul.standardList.standardList--double
           - for service in @maintenance.services
-            %li= service.name
+            %li= (service.group.nil? ? "" : service.group.name + " - ") + service.name
   %dl.definition.u-margin-2x
     %dd.buttonSet
       - if @maintenance.open?
